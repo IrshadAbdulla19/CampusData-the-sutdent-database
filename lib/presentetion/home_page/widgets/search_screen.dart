@@ -14,6 +14,7 @@ class SearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.deepPurple.withOpacity(0.5),
         title: const Text("Search"),
       ),
       body: Column(
@@ -54,7 +55,7 @@ class SearchWidget extends StatelessWidget {
           BlocBuilder<SearchBloc, SearchState>(
             builder: (context, state) {
               return Expanded(
-                child: searchList.isNotEmpty
+                child: state.searchStudents.isNotEmpty
                     ? ListView.builder(
                         itemBuilder: (context, index) {
                           return Card(
@@ -93,7 +94,8 @@ class SearchWidget extends StatelessWidget {
   void serchfuntion(String value, BuildContext context) {
     searchList = theStudentList
         .where((element) =>
-            element.name.toLowerCase().startsWith(value.toLowerCase()))
+            element.name.toLowerCase().startsWith(value.toLowerCase()) ||
+            element.age.startsWith(value))
         .toList();
     context.read<SearchBloc>().add(ForSearch(students: searchList));
   }

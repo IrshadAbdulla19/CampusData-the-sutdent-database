@@ -12,6 +12,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: Colors.deepPurple.withOpacity(0.5),
         automaticallyImplyLeading: false,
         title: const Text("Student Profile"),
       ),
@@ -38,21 +39,9 @@ class ProfileScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Name :${student.name}",
-                        style: const TextStyle(fontSize: 30),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(
-                        "Phone :${student.phone}",
-                        style: const TextStyle(fontSize: 30),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Text(
-                        "Age :${student.age}",
-                        style: const TextStyle(fontSize: 30),
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      textPart("Name :${student.name}"),
+                      textPart("Phone :${student.phone}"),
+                      textPart("Age :${student.age}"),
                     ],
                   ),
                 )
@@ -61,6 +50,14 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Text textPart(String text) {
+    return Text(
+      text,
+      style: const TextStyle(fontSize: 30),
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

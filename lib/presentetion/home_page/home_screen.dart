@@ -18,14 +18,12 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.deepPurple.withOpacity(0.5),
         automaticallyImplyLeading: false,
         title: const Text("Student List"),
         actions: [
           IconButton(
               onPressed: () {
-                context
-                    .read<SearchBloc>()
-                    .add(ForSearch(students: theStudentList));
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
                     return SearchWidget();

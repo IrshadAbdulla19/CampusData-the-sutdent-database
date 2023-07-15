@@ -21,6 +21,7 @@ class StudentAddingPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: Colors.deepPurple.withOpacity(0.5),
         automaticallyImplyLeading: false,
         title: const Text("Add students"),
       ),
